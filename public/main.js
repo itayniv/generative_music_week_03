@@ -219,7 +219,7 @@ function createMap(){
   });
 
   map.addControl(new MapboxGeocoder({
-      accessToken: mapboxgl.accessToken
+    accessToken: mapboxgl.accessToken
   }));
 
   map.on('moveend', function (e) {
@@ -301,6 +301,7 @@ function convertDiamToNote(diamArray){
         break;
         case 12:
         note = 587.33;
+        break;
         case 13:
         note = 659.25;
         break;
@@ -346,8 +347,6 @@ function preparePatterns(objectArray){
 
   patterns = [];
 
-
-
   // console.log("array recieved", objectArray, Object.keys(objectArray).length);
   // console.log("tree[0] name",  Object.keys(objectArray)[0]);
   // console.log("tree[0] name",  Object.keys(objectArray)[1]);
@@ -369,13 +368,18 @@ function preparePatterns(objectArray){
     let nowPlayingTree02 = patterns[1].spc;
     let nowPlayingTree03 = patterns[2].spc;
 
+
+    let nowPlayingTree01quan = patterns[0].diamArr.length;
+    let nowPlayingTree02quan = patterns[1].diamArr.length;
+    let nowPlayingTree03quan = patterns[2].diamArr.length;
+
     console.log(nowPlayingTree02,"and",  nowPlayingTree01 );
 
-    document.getElementById("treeNoOne").innerHTML = nowPlayingTree02;
+    document.getElementById("treeNoOne").innerHTML = nowPlayingTree01quan + " " + nowPlayingTree02  ;
     document.getElementById("and").innerHTML = ", ";
-    document.getElementById("treeNoTwo").innerHTML = nowPlayingTree01;
+    document.getElementById("treeNoTwo").innerHTML = nowPlayingTree02quan+ " " + nowPlayingTree01;
     document.getElementById("and2").innerHTML = "and ";
-    document.getElementById("treeNothree").innerHTML = nowPlayingTree03;
+    document.getElementById("treeNothree").innerHTML = nowPlayingTree03quan +" "+ nowPlayingTree03;
   }
 
 
@@ -398,23 +402,38 @@ function preparePatterns(objectArray){
   synthThree = createSyntThreeWithEffects();
 
 
-if(patterns[0].diamArr != null){
-    var seq = new Tone.Sequence(playNote1, patterns[0].diamArr, "9n");
+
+
+
+
+
+  let newNotelength1 = noteLength(patterns[0].diamArr.length);
+  let newNotelength2 = noteLength(patterns[1].diamArr.length);
+  let newNotelength3 = noteLength(patterns[3].diamArr.length);
+
+  console.log(newNotelength1,newNotelength2,newNotelength3)
+
+
+
+
+
+  if(patterns[0].diamArr != null){
+    var seq = new Tone.Sequence(playNote1, patterns[0].diamArr, newNotelength1);
     seq.start();
     console.log("start this sequencer1");
-}
+  }
 
-if (patterns[1].diamArr != null){
-  var seq2 = new Tone.Sequence(playNote2, patterns[1].diamArr, "2n");
-  seq2.start();
-    console.log("start this sequencer2");
-}
+  if (patterns[1].diamArr != null){
+    var seq2 = new Tone.Sequence(playNote2, patterns[1].diamArr, newNotelength2);
+    seq2.start();
+      console.log("start this sequencer2");
+  }
 
-if (patterns[2].diamArr != null){
-  var seq3 = new Tone.Sequence(playNote3, patterns[2].diamArr, "3n");
-  seq3.start();
-  console.log("start this sequencer3");
-}
+  if (patterns[2].diamArr != null){
+    var seq3 = new Tone.Sequence(playNote3, patterns[2].diamArr, newNotelength3);
+    seq3.start();
+    console.log("start this sequencer3");
+  }
 
 
 
@@ -423,6 +442,86 @@ if (patterns[2].diamArr != null){
 }
 
 
+
+  function noteLength(arrLength){
+
+    let noteLength;
+
+    let note;
+
+    switch ( Math.floor( convertRange( arrLength, [ 0, 150 ], [ 0, 22 ] ))) {
+      case 0:
+      noteLength = "1n";
+      break;
+      case 1:
+      noteLength = "1n";
+      break;
+      case 2:
+      noteLength = "2n";
+      break;
+      case 3:
+      noteLength = "2n";
+      break;
+      case 4:
+      noteLength = "2n";
+      break;
+      case 5:
+      noteLength = "3n";
+      break;
+      case 6:
+      noteLength = "3n";
+      break;
+      case 7:
+      noteLength = "3n";
+      break;
+      case 8:
+      noteLength = "4n";
+      break;
+      case 9:
+      noteLength = "4n";
+      break;
+      case 10:
+      noteLength = "5n";
+      break;
+      case 11:
+      noteLength = "5n";
+      break;
+      case 12:
+      noteLength = "5n";
+      break;
+      case 13:
+      noteLength = "6n";
+      break;
+      case 14:
+      noteLength = "6n";
+      break;
+      case 15:
+      noteLength = "6n";
+      break;
+      case 16:
+      noteLength = "7n";
+      break;
+      case 17:
+      noteLength = "8n";
+      break;
+      case 18:
+      noteLength = "7n";
+      break;
+      case 19:
+      noteLength = "8n";
+      break;
+      case 20:
+      noteLength = "9n";
+      break;
+      case 21:
+      noteLength = "12n";
+      break;
+      case 22:
+      noteLength = "12n";
+
+    }
+    return noteLength;
+  }
 
 
 
@@ -487,29 +586,29 @@ function buttonPressed(){
 
 
 
-  function playNote1(time, note) {
-    if (note != undefined) {
-      synthOne.triggerAttackRelease(note, "1n");
-      // console.log("play notes1");
-    }
+function playNote1(time, note) {
+  if (note != undefined) {
+    synthOne.triggerAttackRelease(note, "1n");
+    // console.log("play notes1");
   }
+}
 
 
-  function playNote2(time, note) {
-    if (note != undefined) {
-      synthTwo.triggerAttackRelease(note, "5n");
-      // console.log("play notes2");
-    }
+function playNote2(time, note) {
+  if (note != undefined) {
+    synthTwo.triggerAttackRelease(note, "5n");
+    // console.log("play notes2");
   }
+}
 
 
 
-  function playNote3(time, note) {
-    if (note != undefined) {
-      synthThree.triggerAttackRelease(note, "6n");
-      // console.log("play notes3");
-    }
+function playNote3(time, note) {
+  if (note != undefined) {
+    synthThree.triggerAttackRelease(note, "6n");
+    // console.log("play notes3");
   }
+}
 
 
 
@@ -560,8 +659,8 @@ function createSyntTwoWithEffects()  {
 
   let polySynth = new Tone.PolySynth(4, Tone.Synth, {
     "oscillator" : {
-				"partials" : [0, 2, 3, 4, 7],
-			},
+      "partials" : [0, 2, 3, 4, 7],
+    },
     "envelope": {
       "attack": 0.08,
       "decay": 0.98,
