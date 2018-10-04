@@ -372,7 +372,7 @@ function preparePatterns(objectArray){
     console.log(nowPlayingTree02,"and",  nowPlayingTree01 );
 
     document.getElementById("treeNoOne").innerHTML = nowPlayingTree02;
-    document.getElementById("and").innerHTML = "and ";
+    document.getElementById("and").innerHTML = ", ";
     document.getElementById("treeNoTwo").innerHTML = nowPlayingTree01;
     document.getElementById("and2").innerHTML = "and ";
     document.getElementById("treeNothree").innerHTML = nowPlayingTree03;

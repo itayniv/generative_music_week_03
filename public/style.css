@@ -189,8 +189,8 @@
   .textbox-padding{
     text-align: center;
     height: 140px;
-    font-size:  40px;
-    font-family: 'Archivo Black', sans-serif;
+    font-size:  30px;
+    font-family:  'Roboto', sans-serif;;
   }
 
   .map-container{
@@ -209,6 +209,7 @@
 
 
   .text-container{
+
     text-align: center;
     margin: auto;
     padding-top: 20px;
@@ -229,8 +230,8 @@
   .textbox-padding-header{
     text-align: center;
     height: 140px;
-    font-size:  45px;
-    font-family: 'Archivo Black', sans-serif;
+    font-size:  24px;
+    font-family: 'Roboto', sans-serif;
     position:relative;
 
   }
