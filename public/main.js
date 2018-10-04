@@ -375,11 +375,11 @@ function preparePatterns(objectArray){
 
     console.log(nowPlayingTree02,"and",  nowPlayingTree01 );
 
-    document.getElementById("treeNoOne").innerHTML = nowPlayingTree01quan + " " + nowPlayingTree02  ;
+    document.getElementById("treeNoOne").innerHTML = " 🌳 " +nowPlayingTree01quan + " " + nowPlayingTree02  ;
     document.getElementById("and").innerHTML = ", ";
-    document.getElementById("treeNoTwo").innerHTML = nowPlayingTree02quan+ " " + nowPlayingTree01;
+    document.getElementById("treeNoTwo").innerHTML = nowPlayingTree02quan+ " " + nowPlayingTree01 ;
     document.getElementById("and2").innerHTML = "and ";
-    document.getElementById("treeNothree").innerHTML = nowPlayingTree03quan +" "+ nowPlayingTree03;
+    document.getElementById("treeNothree").innerHTML = nowPlayingTree03quan +" "+ nowPlayingTree03 + " 🌳 ";
   }
 
 
