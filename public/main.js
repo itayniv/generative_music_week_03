@@ -463,61 +463,61 @@ function preparePatterns(objectArray){
       noteLength = "2n";
       break;
       case 4:
-      noteLength = "2n";
+      noteLength = "4n";
       break;
       case 5:
-      noteLength = "3n";
+      noteLength = "4n";
       break;
       case 6:
-      noteLength = "3n";
+      noteLength = "4n";
       break;
       case 7:
-      noteLength = "3n";
+      noteLength = "4n";
       break;
       case 8:
-      noteLength = "4n";
+      noteLength = "6n";
       break;
       case 9:
-      noteLength = "4n";
+      noteLength = "6n";
       break;
       case 10:
-      noteLength = "5n";
+      noteLength = "6n";
       break;
       case 11:
-      noteLength = "5n";
+      noteLength = "8n";
       break;
       case 12:
-      noteLength = "5n";
+      noteLength = "8n";
       break;
       case 13:
-      noteLength = "6n";
+      noteLength = "8n";
       break;
       case 14:
-      noteLength = "6n";
+      noteLength = "10n";
       break;
       case 15:
-      noteLength = "6n";
+      noteLength = "10n";
       break;
       case 16:
-      noteLength = "7n";
+      noteLength = "12n";
       break;
       case 17:
-      noteLength = "8n";
+      noteLength = "12n";
       break;
       case 18:
-      noteLength = "7n";
+      noteLength = "12n";
       break;
       case 19:
-      noteLength = "8n";
+      noteLength = "14n";
       break;
       case 20:
-      noteLength = "9n";
+      noteLength = "16n";
       break;
       case 21:
-      noteLength = "12n";
+      noteLength = "16n";
       break;
       case 22:
-      noteLength = "12n";
+      noteLength = "18n";
 
     }
     return noteLength;
