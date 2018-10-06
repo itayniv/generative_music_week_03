@@ -3,6 +3,7 @@
 
 
 
+
 /* Basics */
 .mapboxgl-ctrl-geocoder,
 .mapboxgl-ctrl-geocoder *,
@@ -247,6 +248,58 @@
     display: none;
 
   }
+
+
+
+  .trees-item {
+    height: 100%;
+    overflow: auto;
+    padding-bottom: 60px;
+  }
+
+  .trees-item .item {
+    display: block;
+    border-bottom: 1px solid #eee;
+    padding: 10px;
+    text-decoration: none;
+  }
+
+  .trees-item .item:last-child { border-bottom: none; }
+
+  .trees-item .item .title {
+    display: block;
+    color: #00853e;
+    font-weight: 700;
+  }
+
+  .trees-item .item .title small { font-weight: 400; }
+
+  .trees-item .item.active .title,
+  .trees-item .item .title:hover { color: #8cc63f; }
+
+  .trees-item .item.active {
+    background-color: #f8f8f8;
+  }
+
+
+  .heading {
+    background: #fff;
+    border-bottom: 1px solid #eee;
+    height: 60px;
+    line-height: 60px;
+    padding: 0 10px;
+  }
+
+  .sidebar {
+    /* position: absolute; */
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    border-right: 1px solid rgba(0, 0, 0, 0.25);
+  }
+
 
   .container{
     z-index: 265;

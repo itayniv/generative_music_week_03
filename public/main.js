@@ -351,6 +351,8 @@ function preparePatterns(objectArray){
   // console.log("tree[0] name",  Object.keys(objectArray)[0]);
   // console.log("tree[0] name",  Object.keys(objectArray)[1]);
   //for all the objects that are now visible prepare an array
+
+
   for (var i = 0; i < Object.keys(objectArray).length; i++) {
     // console.log(i);
     let currentspc = Object.keys(objectArray)[i];
@@ -361,6 +363,9 @@ function preparePatterns(objectArray){
     });
   }
 
+  buildtreesList(objectArray);
+
+  // console.log(objectArray);
 
   if ( (patterns[0].spc != null) && ( patterns[0].spc != null) ){
 
@@ -383,15 +388,12 @@ function preparePatterns(objectArray){
   }
 
 
-
-
   // stop prevsounds
   if (started){
     Tone.Transport.stop();
     // seq.stop();
     console.log("stop");
   }
-
 
 
   Tone.Transport.bpm.value = 100;
@@ -402,18 +404,11 @@ function preparePatterns(objectArray){
   synthThree = createSyntThreeWithEffects();
 
 
-
-
-
-
-
   let newNotelength1 = noteLength(patterns[0].diamArr.length);
   let newNotelength2 = noteLength(patterns[1].diamArr.length);
   let newNotelength3 = noteLength(patterns[3].diamArr.length);
 
   console.log(newNotelength1,newNotelength2,newNotelength3)
-
-
 
 
 
@@ -426,7 +421,7 @@ function preparePatterns(objectArray){
   if (patterns[1].diamArr != null){
     var seq2 = new Tone.Sequence(playNote2, patterns[1].diamArr, newNotelength2);
     seq2.start();
-      console.log("start this sequencer2");
+    console.log("start this sequencer2");
   }
 
   if (patterns[2].diamArr != null){
@@ -443,85 +438,85 @@ function preparePatterns(objectArray){
 
 
 
-  function noteLength(arrLength){
+function noteLength(arrLength){
 
-    let noteLength;
+  let noteLength;
 
-    let note;
+  let note;
 
-    switch ( Math.floor( convertRange( arrLength, [ 0, 150 ], [ 0, 22 ] ))) {
-      case 0:
-      noteLength = "1n";
-      break;
-      case 1:
-      noteLength = "1n";
-      break;
-      case 2:
-      noteLength = "2n";
-      break;
-      case 3:
-      noteLength = "2n";
-      break;
-      case 4:
-      noteLength = "4n";
-      break;
-      case 5:
-      noteLength = "4n";
-      break;
-      case 6:
-      noteLength = "4n";
-      break;
-      case 7:
-      noteLength = "4n";
-      break;
-      case 8:
-      noteLength = "6n";
-      break;
-      case 9:
-      noteLength = "6n";
-      break;
-      case 10:
-      noteLength = "6n";
-      break;
-      case 11:
-      noteLength = "8n";
-      break;
-      case 12:
-      noteLength = "8n";
-      break;
-      case 13:
-      noteLength = "8n";
-      break;
-      case 14:
-      noteLength = "10n";
-      break;
-      case 15:
-      noteLength = "10n";
-      break;
-      case 16:
-      noteLength = "12n";
-      break;
-      case 17:
-      noteLength = "12n";
-      break;
-      case 18:
-      noteLength = "12n";
-      break;
-      case 19:
-      noteLength = "14n";
-      break;
-      case 20:
-      noteLength = "16n";
-      break;
-      case 21:
-      noteLength = "16n";
-      break;
-      case 22:
-      noteLength = "18n";
+  switch ( Math.floor( convertRange( arrLength, [ 0, 150 ], [ 0, 22 ] ))) {
+    case 0:
+    noteLength = "1n";
+    break;
+    case 1:
+    noteLength = "1n";
+    break;
+    case 2:
+    noteLength = "2n";
+    break;
+    case 3:
+    noteLength = "2n";
+    break;
+    case 4:
+    noteLength = "4n";
+    break;
+    case 5:
+    noteLength = "4n";
+    break;
+    case 6:
+    noteLength = "4n";
+    break;
+    case 7:
+    noteLength = "4n";
+    break;
+    case 8:
+    noteLength = "6n";
+    break;
+    case 9:
+    noteLength = "6n";
+    break;
+    case 10:
+    noteLength = "6n";
+    break;
+    case 11:
+    noteLength = "8n";
+    break;
+    case 12:
+    noteLength = "8n";
+    break;
+    case 13:
+    noteLength = "8n";
+    break;
+    case 14:
+    noteLength = "10n";
+    break;
+    case 15:
+    noteLength = "10n";
+    break;
+    case 16:
+    noteLength = "12n";
+    break;
+    case 17:
+    noteLength = "12n";
+    break;
+    case 18:
+    noteLength = "12n";
+    break;
+    case 19:
+    noteLength = "14n";
+    break;
+    case 20:
+    noteLength = "16n";
+    break;
+    case 21:
+    noteLength = "16n";
+    break;
+    case 22:
+    noteLength = "18n";
 
-    }
-    return noteLength;
   }
+  return noteLength;
+}
 
 
 
@@ -572,6 +567,46 @@ function getUniqueFeatures(array, comparatorProperty){
   return uniqueFeatures;
 }
 
+
+
+
+function buildtreesList(newtreesArr) {
+
+  // Iterate through the list of stores
+
+    console.log("remove");
+    var treestoRemove = document.getElementById("listings");
+    while (treestoRemove.firstChild) {
+      treestoRemove.removeChild(treestoRemove.firstChild);
+    }
+
+
+
+
+  for (var i = 0; i < Object.keys(newtreesArr).length; i++) {
+    let currentspc = Object.keys(newtreesArr)[i];
+    // console.log(currentspc);
+
+    // var elem = document.getElementById('dummy');
+    // elem.parentNode.removeChild(elem);
+
+    var trees = document.getElementById('listings');
+    var tree = trees.appendChild(document.createElement('div'));
+
+
+    tree.className = 'item';
+    tree.id = 'listing-' + i;
+
+    var link = tree.appendChild(document.createElement('span'));
+    link.href = '#';
+
+    link.className = 'title';
+    link.dataPosition = i;
+    link.innerHTML = currentspc;
+
+  }
+
+}
 
 
 //////// --------> Tone Js Stuff
