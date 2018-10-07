@@ -10,7 +10,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="style.css">
 
-  <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Libre+Baskerville:400,400i,700" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Archivo+Black" rel="stylesheet">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
@@ -44,36 +44,41 @@
 
 
 
-  <div id="treesdiv" class="">
-    <div class="col-sm-2">
-      <div class='sidebar'>
-        <div class='heading'>
-          <h1>Trees</h1>
-        </div>
-        <div id='listings' class='trees-item'></div>
-      </div>
+
+  <div class="col-sm-12" style="
+    position: fixed;">
+    <div class="map-container" id='map'>
     </div>
-    <div class="col-sm-10">
-      <div class="map-container" id='map'>
-      </div>
-    </div>
-
-    <div  class="text-container">
-      <span id="treeNoOne" class="textbox-padding"></span>
-      <span id="and" class="textbox-padding"></span>
-      <span id="treeNoTwo" class="textbox-padding"></span>
-      <span id="and2" class="textbox-padding"></span>
-      <span id="treeNothree" class="textbox-padding"></span>
-    </div>
-
-
-    <!-- <button onclick="buttonPressed()">Click me</button> -->
-
   </div>
 
-  <div id="div1" class="container">
 
+
+  <div class="col-sm-3" style="
+    position: absolute;
+    top:0;
+    z-index: 3;
+    height:100vh;
+    background-color: white;
+    font-family: 'Libre Baskerville', serif;">
+    <div class='sidebar'>
+      <div class='heading'>
+        <h1>Trees</h1>
+      </div>
+      <div id='TreesList' class="trees-item">
+      </div>
+    </div>
   </div>
+
+
+
+
+
+
+
+</div>
+
+
+</div>
 
 </body>
 

@@ -124,9 +124,9 @@ function createMap(){
       'source-layer': 'new_york_tree_census_edited-9ee3ez',
       paint: {
         'circle-radius': [ 'interpolate', ['linear'], ['zoom'],
-        10, ['/',['-', 20, ['number', ['get', 'tree_dbh'], 20]],9],
-        13, ['/',['-', 20, ['number', ['get', 'tree_dbh'], 20]],4],
-        17, ['/',['-', 20, ['number', ['get', 'tree_dbh'], 20]],1],
+        10, ['/',['-', 40, ['number', ['get', 'tree_dbh'], 40]],10],
+        13, ['/',['-', 40, ['number', ['get', 'tree_dbh'], 40]],7],
+        17, ['/',['-', 40, ['number', ['get', 'tree_dbh'], 40]],3],
       ],
       'circle-opacity': 0.8,
       // 'circle-color': 'rgb(20, 245, 125)'
@@ -379,12 +379,12 @@ function preparePatterns(objectArray){
     let nowPlayingTree03quan = patterns[2].diamArr.length;
 
     console.log(nowPlayingTree02,"and",  nowPlayingTree01 );
-
-    document.getElementById("treeNoOne").innerHTML = " 🌳 " +nowPlayingTree01quan + " " + nowPlayingTree02  ;
-    document.getElementById("and").innerHTML = ", ";
-    document.getElementById("treeNoTwo").innerHTML = nowPlayingTree02quan+ " " + nowPlayingTree01 ;
-    document.getElementById("and2").innerHTML = "and ";
-    document.getElementById("treeNothree").innerHTML = nowPlayingTree03quan +" "+ nowPlayingTree03 + " 🌳 ";
+    //
+    // document.getElementById("treeNoOne").innerHTML = " 🌳 " +nowPlayingTree01quan + " " + nowPlayingTree02  ;
+    // document.getElementById("and").innerHTML = ", ";
+    // document.getElementById("treeNoTwo").innerHTML = nowPlayingTree02quan+ " " + nowPlayingTree01 ;
+    // document.getElementById("and2").innerHTML = "and ";
+    // document.getElementById("treeNothree").innerHTML = nowPlayingTree03quan +" "+ nowPlayingTree03 + " 🌳 ";
   }
 
 
@@ -575,37 +575,56 @@ function buildtreesList(newtreesArr) {
   // Iterate through the list of stores
 
     console.log("remove");
-    var treestoRemove = document.getElementById("listings");
+
+    var treestoRemove = document.getElementById("TreesList");
     while (treestoRemove.firstChild) {
       treestoRemove.removeChild(treestoRemove.firstChild);
     }
 
 
 
-
   for (var i = 0; i < Object.keys(newtreesArr).length; i++) {
-    let currentspc = Object.keys(newtreesArr)[i];
-    // console.log(currentspc);
+    if (Object.keys(newtreesArr)[i] != ""){
 
-    // var elem = document.getElementById('dummy');
-    // elem.parentNode.removeChild(elem);
+      let currentspc = Object.keys(newtreesArr)[i];
+      // console.log(currentspc);
 
-    var trees = document.getElementById('listings');
-    var tree = trees.appendChild(document.createElement('div'));
+      // var elem = document.getElementById('dummy');
+      // elem.parentNode.removeChild(elem);
+
+      var trees = document.getElementById('TreesList');
+      var tree = trees.appendChild(document.createElement('div'));
 
 
-    tree.className = 'item';
-    tree.id = 'listing-' + i;
+      tree.className = 'item';
+      tree.id = Object.keys(newtreesArr)[i];
 
-    var link = tree.appendChild(document.createElement('span'));
-    link.href = '#';
+      var link = tree.appendChild(document.createElement('span'));
 
-    link.className = 'title';
-    link.dataPosition = i;
-    link.innerHTML = currentspc;
+      link.href = '#';
+      link.className = 'title';
+      link.dataPosition = i;
+      link.innerHTML = currentspc;
 
+      //createSpan
+
+      var dot = document.createElement("span");
+      var textnode = document.createTextNode("");
+      dot.appendChild(textnode);
+      dot.className = 'dot';
+
+      document.getElementById(Object.keys(newtreesArr)[i]).appendChild(dot);
+
+      // var dot = tree.appendChild(document.createElement('span'));
+      //
+      // link.href = '#';
+      // link.className = 'dot';
+      // link.dataPosition = i;
+      // link.innerHTML = " ";
+
+
+    }
   }
-
 }
 
 
@@ -624,7 +643,7 @@ function buttonPressed(){
 function playNote1(time, note) {
   if (note != undefined) {
     synthOne.triggerAttackRelease(note, "1n");
-    // console.log("play notes1");
+    console.log("play notes1");
   }
 }
 
@@ -632,7 +651,7 @@ function playNote1(time, note) {
 function playNote2(time, note) {
   if (note != undefined) {
     synthTwo.triggerAttackRelease(note, "5n");
-    // console.log("play notes2");
+    console.log("play notes2");
   }
 }
 
@@ -641,7 +660,7 @@ function playNote2(time, note) {
 function playNote3(time, note) {
   if (note != undefined) {
     synthThree.triggerAttackRelease(note, "6n");
-    // console.log("play notes3");
+    console.log("play notes3");
   }
 }
 

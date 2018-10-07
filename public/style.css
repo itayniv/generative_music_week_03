@@ -196,9 +196,9 @@
 
   .map-container{
     margin: auto;
-    padding-top: 60px;
-    width: 90%;
-    height: 90vh;
+    padding-top: 0px;
+    width: 100%;
+    height: 100vh;
     display: flex;
     flex-flow: row nowrap;
     position: absolute;
@@ -255,6 +255,7 @@
     height: 100%;
     overflow: auto;
     padding-bottom: 60px;
+    display: inline;
   }
 
   .trees-item .item {
@@ -267,7 +268,7 @@
   .trees-item .item:last-child { border-bottom: none; }
 
   .trees-item .item .title {
-    display: block;
+    display: inline;
     color: #00853e;
     font-weight: 700;
   }
@@ -290,6 +291,19 @@
     padding: 0 10px;
   }
 
+  .dot {
+    height: 15px;
+    width: 15px;
+    background-color: #bbb;
+    border-radius: 50%;
+    /* display: inline-block; */
+    position: absolute;
+    right: 30px;
+    width: 20px;
+    padding: 10px;
+    display: inline-block;
+  }
+
   .sidebar {
     /* position: absolute; */
     width: 100%;
@@ -300,13 +314,25 @@
     border-right: 1px solid rgba(0, 0, 0, 0.25);
   }
 
+  .zposminus{
+    /* z-index: -10000; */
+    /* position: absolute; */
+
+  }
+
+
+  .zpospos{
+    /* z-index: 10000; */
+    /* position: absolute; */
+
+  }
+
 
   .container{
     z-index: 265;
-    position: absolute !important;
-    padding-top: 60px !important;
-    width: 100% !important;
-
+    /* position: absolute !important; */
+    /* padding-top: 0px !important; */
+    /* width: 100% !important; */
   }
 
   #container {
@@ -329,10 +355,11 @@
 
 
   .container-fluid{
-    text-align: center;
-    font-family: 'Roboto Mono', monospace;
-    font-size: 20px;
-    width: 100% !important;
+    z-index: 3;
+    /* text-align: center; */
+    /* font-family: 'Roboto Mono', monospace; */
+    /* font-size: 20px; */
+    /* width: 100% !important; */
   }
 
 
@@ -567,42 +594,6 @@
 }
 
 @media screen and (min-width: 1200px) {
-
-  .container{
-    z-index: 265;
-    position: absolute !important;
-    padding-top: 60px !important;
-    width: 100% !important;
-
-  }
-
-  #container {
-    width: 100%;
-    height: 150px;
-    background-color: red;
-  }
-
-
-  #buttons {
-    color:white;
-    background-color: #FF00FF;
-    position:absolute;
-    z-index:5;
-    text-align: center;
-    top:50px;
-    width : 100%;
-    height : 30px;
-  }
-
-
-  .container-fluid{
-    text-align: center;
-    font-family: 'Roboto Mono', monospace;
-    font-size: 20px;
-    width: 100% !important;
-  }
-
-
 
   .icon-font{
     position: absolute !important;
