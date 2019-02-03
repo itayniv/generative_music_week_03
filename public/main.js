@@ -112,6 +112,11 @@ function createMap(){
   });
 
 
+// TODO map directions
+  map.addControl(new MapboxDirections({
+      accessToken: mapboxgl.accessToken
+  }), 'top-left');
+
 
   map.on('load', function() {
     map.addLayer({
@@ -631,11 +636,6 @@ function buildtreesList(newtreesArr) {
 //////// --------> Tone Js Stuff
 
 
-
-function buttonPressed(){
-  isbuttonOn = true;
-  console.log(isbuttonOn);
-}
 
 
 
